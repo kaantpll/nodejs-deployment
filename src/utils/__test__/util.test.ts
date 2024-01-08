@@ -1,11 +1,4 @@
-import {
-  describe,
-  it,
-  expect,
-  beforeEach,
-  afterEach,
-  test,
-} from "@jest/globals";
+import { describe, it, expect } from "@jest/globals";
 import { generateCode, generateExpiresAt, generateHash } from "..";
 
 describe("Utils Tests", () => {

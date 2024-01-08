@@ -13,11 +13,15 @@ spec:
         app: my-nodejs-app
     spec:
       containers:
-      - name: my-nodejs-app
-        image: your-docker-image-name:tag
-        ports:
-        - containerPort: 3000
-        resources:
-          limits:
-            cpu: "1"
-            memory: "512Mi"
+        - name: my-nodejs-app
+          image: kaantpll/node-dep:latest
+          imagePullPolicy: Always
+          env:
+          - name: DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: my-configmap
+                key: DB_HOST
+          ports:
+            - containerPort: 3000
+  
